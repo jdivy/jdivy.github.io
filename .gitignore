@@ -2,3 +2,7 @@ _site
 _import
 .DS_Store
 Gemfile.lock
+.idea
+*.iml
+
+atlassian-ide-plugin.xml

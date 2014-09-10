@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1024"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+  <title>Git: For Creators, Savers, Editors, Rinsers & Repeaters</title>
+
+  <meta name="description"
+        content="A high level overview of git, why it's important, and how it holds up against other version control systems."/>
+  <meta name="author" content="Jack Ivy"/>
+
+  <link
+    href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+    rel="stylesheet"/>
+
+
+  <link href="css/presentation.css" rel="stylesheet"/>
+
+  <link rel="shortcut icon" href="bower_components/impress.js/favicon.png"/>
+  <link rel="apple-touch-icon" href="bower_components/impress.js/apple-touch-icon.png"/>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: '4XpnKHJAok8',
+        playerVars: {
+          start: 3025
+        }
+      });
+    }
+  </script>
+</head>
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+    version of this presentation.</p>
+
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+  <div id="intro" class="step slide-intro" data-x="0">
+    <p>Welcome to <img src="img/logo@2x.png"/></p>
+  </div>
+
+  <div id="overview" class="step slide-box" data-x="1100">
+    <p><strong>Is it...</strong></p>
+    <ul>
+      <li>Free? <em>yes</em></li>
+      <li>Open Source? <em>yes</em></li>
+      <li>Fast? <em>yes</em></li>
+      <li>The Best? <em>we'll see...</em></li>
+    </ul>
+  </div>
+
+  <div id="about" class="step slide-box" data-x="2200">
+    <p>In technical speak, git is a <br/><strong>Distributed Version Control System</strong>.</p>
+
+    <p>What the heck is that?</p>
+  </div>
+
+
+  <div id="vcs" class="step slide-box" data-x="2200" data-y="-500" data-z="500" data-rotate-x="90">
+    <p><em>Version Control</em> is the idea that we want to <strong>track changes to data over time</strong>.</p>
+    <p>Simple? yes.</p>
+    <p>Powerful? you bet.</p>
+
+  </div>
+
+  <div id="not-just-code" class="step slide-box" data-x="2200" data-y="-500" data-z="1500" data-rotate-x="90">
+    <p>...and not just code!</p>
+    <p>Whether you compose <em>Word</em> documents, sketch <em>Photoshop</em> designs, or hack on <em>JavaScript</em>, version control is a fantastic way of tracking your changes.</p>
+  </div>
+
+  <div id="why-distributed" class="step" data-x="3300" data-y="-500" data-z="2500" data-rotate-x="90" data-rotate-z="-180">
+    <p>So what does it mean to be <em>distributed</em>?</p>
+  </div>
+
+  <div id="distributed" class="step slide-box" data-x="2200" data-y="1000">
+    <p>To paraphrase Wikipedia, "no canonical, reference copy of the [repository] exists by default". In other words, <em>every</em> collaborator has a <em>full</em> copy of the repository.</p>
+    <p>In practice, one working copy of a given repository is usually kept on a 'central' system.</p>
+  </div>
+  <div id="others" class="step slide-box" data-x="2200" data-y="2000">
+    <p>However, you don't have to collaborate with others to reap the benefits of git.</p>
+    <p>Just initialize any folder as a git repository and you're off to the races.</p>
+  </div>
+
+  <div id="meaning" class="step slide-box" data-x="2200" data-y="3000">
+    <h2><strong>Benefits of DVCS/git, just to name a few:</strong></h2>
+    <ul>
+      <li>* You have a complete copy of the repository - the full history</li>
+      <li>* You don't need network connectivity to be productive</li>
+      <li>* Much higher performance - common operations are local</li>
+      <li>* If the main server is down...who cares</li>
+      <li>* A 'server' in the SVN sense is not even technically necessary</li>
+      <li>* Use it on your own, to track any content changes over time</li>
+      <li>* Everyone is a 'backup' for everyone (when collaborating)</li>
+      <li>* Merging is actually fun and fast, not an 'up to 8 hour' process</li>
+      <li>* More than just a 'centralized' workflow is possible</li>
+      <li>* ...</li>
+    </ul>
+  </div>
+
+  <div id="workflow-a" class="step workflow" data-x="4400">
+    <p>Centralized workflow</p>
+    <img src="img/workflow-a@2x.png"/>
+  </div>
+
+  <div id="workflow-b" class="step workflow" data-x="5500">
+    <p><em>One</em> example of a distributed workflow</p>
+    <img src="img/workflow-b@2x.png"/>
+  </div>
+
+  <div id="workflow-c" class="step workflow" data-x="7000" data-z="500" data-scale="2" data-rotate="90">
+    <p>The Linux kernel uses this one</p>
+    <img src="img/workflow-c@2x.png"/>
+  </div>
+
+  <!--<div id="clip1" class="step" data-x="3300" data-rotate-x="90">-->
+  <!--<div id="player"></div>-->
+  <!--</div>-->
+</div>
+
+<script src="bower_components/impress.js/js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
