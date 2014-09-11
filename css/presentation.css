@@ -85,7 +85,7 @@ p {
   box-sizing: border-box;
 
 
-  font-size: 48px;
+  font-size: 64px;
   line-height: 1.5;
 }
 
@@ -111,8 +111,13 @@ p {
   vertical-align: middle;
 }
 
-#meaning {
+#in-practice {
   font-size: 30px;
+}
+
+#meaning {
+  width: 1250px;
+  font-size: 40px;
 }
 
 .workflow {
@@ -120,11 +125,12 @@ p {
 }
 
 .joel {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 #benchmarks {
-  font-size: 20px;
+  width: 1500px;
+  font-size: 30px;
 }
 
 #benchmarks p {
@@ -209,8 +215,8 @@ table.benchmarks {
 .slide-box {
   display: block;
 
-  width: 900px;
-  height: 700px;
+  width: 1024px;
+  height: 800px;
 
   padding: 40px 60px;
   border-radius: 10px;

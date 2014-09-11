@@ -1,10 +1,8 @@
 /**
  * Created by jivy on 9/11/14.
  */
-var clip1;
-var clip2;
 function onYouTubeIframeAPIReady() {
-  clip1 = new YT.Player('clip1-player', {
+  var clip1 = new YT.Player('clip1-player', {
     height: '600',
     width: '800',
     videoId: '4XpnKHJAok8',
@@ -16,7 +14,7 @@ function onYouTubeIframeAPIReady() {
     }
   });
 
-  clip2 = new YT.Player('clip2-player', {
+  var clip2 = new YT.Player('clip2-player', {
     height: '600',
     width: '800',
     videoId: '4XpnKHJAok8',
