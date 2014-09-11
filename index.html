@@ -22,73 +22,7 @@
   <link rel="apple-touch-icon" href="bower_components/impress.js/apple-touch-icon.png"/>
 
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    var clip1;
-    var clip2;
-    function onYouTubeIframeAPIReady() {
-      clip1 = new YT.Player('clip1-player', {
-        height: '600',
-        width: '800',
-        videoId: '4XpnKHJAok8',
-        playerVars: {
-          start: 2093
-        },
-        events: {
-          'onStateChange': onClip1StateChange
-        }
-      });
-
-      clip2 = new YT.Player('clip2-player', {
-        height: '600',
-        width: '800',
-        videoId: '4XpnKHJAok8',
-        playerVars: {
-          start: 3026
-        },
-        events: {
-          'onStateChange' : onClip2StateChange
-        }
-      });
-
-      var clip1Done = false;
-      function onClip1StateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && ! clip1Done) {
-          setTimeout(stopClip1, 186 * 1000);
-        }
-      }
-      function stopClip1(){
-        clip1.stopVideo();
-      }
-
-
-      var clip2Done = false;
-      function onClip2StateChange(event){
-        if (event.data == YT.PlayerState.PLAYING && !clip2Done) {
-          setTimeout(stopClip2, 281 * 1000);
-          clip2Done = true;
-        }
-      }
-      function stopClip2(){
-        clip2.stopVideo();
-      }
-
-      document.addEventListener('impress:stepenter', function (e) {
-        switch (e.target.id) {
-          case "clip2": {
-            clip2.playVideo();
-            break;
-          }
-          case "clip1": {
-            clip1.playVideo();
-            break;
-          }
-        }
-        console.log(e.target.id);
-      });
-    }
-
-
-  </script>
+  <script src="js/presentation.js"></script>
 </head>
 <body class="impress-not-supported">
 
@@ -101,255 +35,270 @@
 
 <div id="impress">
 
-  <div id="intro" class="step slide-intro" data-x="0">
-    <p>Welcome to <img src="img/logo@2x.png"/></p>
-  </div>
+<div id="intro" class="step slide-intro" data-x="0">
+  <p>Welcome to <img src="img/logo@2x.png"/></p>
+</div>
 
-  <div id="overview" class="step slide-box" data-x="1100">
-    <p><strong>Is it...</strong></p>
-    <ul>
-      <li>Free? <em>yes</em></li>
-      <li>Open Source? <em>yes</em></li>
-      <li>Fast? <em>yes</em></li>
-      <li>The Best? <em>we'll see...</em></li>
-    </ul>
-  </div>
+<div id="overview" class="step slide-box" data-x="1100">
+  <p><strong>Is it...</strong></p>
+  <ul>
+    <li>Free? <em>yes</em></li>
+    <li>Open Source? <em>yes</em></li>
+    <li>Fast? <em>yes</em></li>
+    <li>The Best? <em>we'll see...</em></li>
+  </ul>
+</div>
 
-  <div id="about" class="step slide-box" data-x="2200">
-    <p>In technical speak, git is a <br/><strong>Distributed Version Control System</strong>.</p>
+<div id="about" class="step slide-box" data-x="2200">
+  <p>In technical speak, git is a <br/><strong>Distributed Version Control System</strong>.</p>
 
-    <p>What the heck is that?</p>
-  </div>
-
-
-  <div id="vcs" class="step slide-box" data-x="2200" data-y="-500" data-z="500" data-rotate-x="90">
-    <p><em>Version Control</em> is the idea that we want to <strong>track changes to data over time</strong>.</p>
-
-    <p>Simple? yes.</p>
-
-    <p>Powerful? you bet.</p>
-
-  </div>
-
-  <div id="not-just-code" class="step slide-box" data-x="2200" data-y="-500" data-z="1500" data-rotate-x="90">
-    <p>...and not just code!</p>
-
-    <p>Whether you compose <em>Word</em> documents, sketch <em>Photoshop</em> designs, or hack on <em>JavaScript</em>,
-      version control is a fantastic way of tracking your changes.</p>
-  </div>
-
-  <div id="why-distributed" class="step" data-x="2200" data-y="-500" data-z="2500" data-rotate-x="90"
-       data-rotate-z="-180">
-    <p>So what does it mean to be <em>distributed</em>?</p>
-  </div>
-
-  <div id="distributed" class="step slide-box" data-x="2200" data-y="1000">
-    <p>To paraphrase Wikipedia, "no canonical, reference copy of the [repository] exists by default". In other words,
-      <em>every</em> collaborator has a <em>full</em> copy of the repository.</p>
-
-    <p>In practice, one working copy of a given repository is usually kept on a 'central' system.</p>
-  </div>
-  <div id="others" class="step slide-box" data-x="2200" data-y="2000">
-    <p>However, you don't have to collaborate with others to reap the benefits of git.</p>
-
-    <p>Just initialize any folder as a git repository and you're off to the races.</p>
-  </div>
-
-  <div id="meaning" class="step slide-box" data-x="2200" data-y="3000">
-    <h2><strong>Benefits of DVCS/git, just to name a few:</strong></h2>
-    <ul>
-      <li>* You have a complete copy of the repository - the full history</li>
-      <li>* You don't need network connectivity to be productive</li>
-      <li>* Much higher performance - common operations are local</li>
-      <li>* If the main server is down...who cares</li>
-      <li>* A 'server' in the SVN sense is not even technically necessary</li>
-      <li>* Use it on your own, to track any content changes over time</li>
-      <li>* Everyone is a 'backup' for everyone (when collaborating)</li>
-      <li>* Merging is actually fun and fast, not an 'up to 8 hour' process</li>
-      <li>* More than just a 'centralized' workflow is possible</li>
-      <li>* ...</li>
-    </ul>
-  </div>
-
-  <div id="speaking-of" class="step" data-x="4500" data-y="100" data-z="2000" data-scale="1">
-    <p>Speaking of workflows...</p>
-  </div>
-
-  <div id="workflow-a" class="step workflow" data-x="3300">
-    <p>Centralized workflow</p>
-    <img src="img/workflow-a@2x.png"/>
-  </div>
-
-  <div id="workflow-b" class="step workflow" data-x="4500">
-    <p><em>One</em> example of a distributed workflow</p>
-    <img src="img/workflow-b@2x.png"/>
-  </div>
-
-  <div id="workflow-c" class="step workflow" data-x="5800">
-    <p>The Linux kernel uses this one</p>
-    <img src="img/workflow-c@2x.png"/>
-  </div>
-
-  <div id="the-question" class="step" data-y="500" data-z="-25" data-rotate-x="-10">
-    <p>But is Git better than Subversion?</p>
-  </div>
-
-  <div id="not-my-word" class="step" data-y="1000" data-z="-50" data-rotate-x="-15">
-    <p> Don't take my word for it...</p>
-  </div>
-
-  <div id="benchmarks" class="step" data-y="1750" data-z="-75" data-rotate-x="-16">
-    <p>All times are in seconds.</p>
-    <table class="benchmarks">
-      <tbody>
-      <tr>
-        <th>Operation</th>
-        <th></th>
-        <th class="right">Git</th>
-        <th class="right">SVN</th>
-      </tr>
-      <tr>
-        <td nowrap="">Commit Files (A)</td>
-        <td class="desc">Add, commit and push 113 modified files (2164+, 2259-)</td>
-        <td class="number"> 0.64</td>
-        <td class="number"> 2.60</td>
-        <td class="number">4x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Commit Images (B)</td>
-        <td class="desc">Add, commit and push 1000 1k images</td>
-        <td class="number"> 1.53</td>
-        <td class="number">24.70</td>
-        <td class="number">16x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Diff Current</td>
-        <td class="desc">Diff 187 changed files (1664+, 4859-) against last commit</td>
-        <td class="number"> 0.25</td>
-        <td class="number"> 1.09</td>
-        <td class="number">4x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Diff Recent</td>
-        <td class="desc">Diff against 4 commits back (269 changed/3609+,6898-)</td>
-        <td class="number"> 0.25</td>
-        <td class="number"> 3.99</td>
-        <td class="number">16x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Diff Tags</td>
-        <td class="desc">Diff two tags against each other (v1.9.1.0/v1.9.3.0 )</td>
-        <td class="number"> 1.17</td>
-        <td class="number">83.57</td>
-        <td class="number">71x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Log (50)</td>
-        <td class="desc">Log of the last 50 commits (19k of output)</td>
-        <td class="number"> 0.01</td>
-        <td class="number"> 0.38</td>
-        <td class="number">31x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Log (All)</td>
-        <td class="desc">Log of all commits (26,056 commits - 9.4M of output)</td>
-        <td class="number"> 0.52</td>
-        <td class="number">169.20</td>
-        <td class="number">325x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Log (File)</td>
-        <td class="desc">Log of the history of a single file (array.c - 483 revs)</td>
-        <td class="number"> 0.60</td>
-        <td class="number">82.84</td>
-        <td class="number">138x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Update</td>
-        <td class="desc">Pull of Commit A scenario (113 files changed, 2164+, 2259-)</td>
-        <td class="number"> 0.90</td>
-        <td class="number"> 2.82</td>
-        <td class="number">3x</td>
-      </tr>
-      <tr>
-        <td nowrap="">Blame</td>
-        <td class="desc">Line annotation of a single file (array.c)</td>
-        <td class="number"> 1.91</td>
-        <td class="number"> 3.04</td>
-        <td class="number">1x</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+  <p>What the heck is that?</p>
+</div>
 
 
-  <div id="joel1" class="step joel" data-y="3000" data-z="-100" data-rotate-x="-17">
-    <p>Joel on Software:</p>
+<div id="vcs" class="step slide-box" data-x="2200" data-y="-500" data-z="500" data-rotate-x="90">
+  <p><em>Version Control</em> is the idea that we want to <strong>track changes to data over time</strong>.</p>
 
-    <p>With distributed version control, the <em>distributed</em> part is actually not the most interesting part.</p>
+  <p>Simple? yes.</p>
 
-    <p>The interesting part is that these systems think in terms of <em>changes</em>, not in terms of <em>versions</em>.
-    </p>
+  <p>Powerful? you bet.</p>
 
-    <p>That's a very zen-like thing to say, I know. Traditional version control thinks: OK, I have version 1. And now I
-      have version 2. And now I have version 3.</p>
+</div>
 
-    <p>And distributed version control thinks, I had nothing. And then I got these changes. And then I got these other
-      changes.</p>
+<div id="not-just-code" class="step slide-box" data-x="2200" data-y="-500" data-z="1500" data-rotate-x="90">
+  <p>...and not just code!</p>
 
-    <p>It's a different Program Model, so the user model has to change.</p>
+  <p>Whether you compose <em>Word</em> documents, sketch <em>Photoshop</em> designs, or hack on <em>JavaScript</em>,
+    version control is a fantastic way of tracking your changes.</p>
+</div>
 
-    <p>...</p>
+<div id="why-distributed" class="step" data-x="2200" data-y="-500" data-z="2500" data-rotate-x="90"
+     data-rotate-z="-180">
+  <p>So what does it mean to be <em>distributed</em>?</p>
+</div>
 
-  </div>
-  <div id="joel2" class="step joel" data-y="4000" data-z="-250" data-rotate-x="-20">
+<div id="distributed" class="step slide-box" data-x="2200" data-y="1000">
+  <p>To paraphrase Wikipedia, "no canonical, reference copy of the [repository] exists by default". In other words,
+    <em>every</em> collaborator has a <em>full</em> copy of the repository.</p>
 
-    <p>If you come at Mercurial with a Subversion mindset, things will <em>almost</em> work, but when they don't, you'll
-      be confused, unhappy, and unsuccessful, and you'll hate Mercurial.</p>
+  <p>In practice, one working copy of a given repository is usually kept on a 'central' system.</p>
+</div>
+<div id="others" class="step slide-box" data-x="2200" data-y="2000">
+  <p>However, you don't have to collaborate with others to reap the benefits of git.</p>
 
-    <p>Whereas if you free your mind and reimagine version control, and grok the zen of the difference between thinking
-      about managing the <em>versions</em> vs. thinking about managing the <em>changes</em>, you'll become enlightened
-      and happy and realize that this is the way version control was meant to work.</p>
+  <p>Just initialize any folder as a git repository and you're off to the races.</p>
+</div>
 
-    <p>And here is the most important point, indeed, <em>the</em> most important thing that we've learned about
-      developer productivity in a decade. It's so important that it merits a place as the very last opinion piece that I
-      write, so if you only remember one thing, remember this:</p>
+<div id="meaning" class="step slide-box" data-x="2200" data-y="3000">
+  <h2><strong>Benefits of DVCS/git, just to name a few:</strong></h2>
+  <ul>
+    <li>* You have a complete copy of the repository - the full history</li>
+    <li>* You don't need network connectivity to be productive</li>
+    <li>* Much higher performance - common operations are local</li>
+    <li>* If the main server is down...who cares</li>
+    <li>* A 'server' in the SVN sense is not even technically necessary</li>
+    <li>* Use it on your own, to track any content changes over time</li>
+    <li>* Everyone is a 'backup' for everyone (when collaborating)</li>
+    <li>* Merging is actually fun and fast, not an 'up to 8 hour' process</li>
+    <li>* More than just a 'centralized' workflow is possible</li>
+    <li>* ...</li>
+  </ul>
+</div>
 
-    <p>When you manage <em>changes</em> instead of managing <em>versions</em>, merging works better, and therefore, you
-      can branch any time your organizational goals require it, because merging back will be a piece of cake.</p>
+<div id="speaking-of" class="step" data-x="4500" data-y="100" data-z="2000" data-scale="1">
+  <p>Speaking of workflows...</p>
+</div>
 
-  </div>
-  <div id="joel3" class="step joel" data-y="5000" data-z="-405" data-rotate-x="-22">
+<div id="workflow-a" class="step workflow" data-x="3300">
+  <p>Centralized workflow</p>
+  <img src="img/workflow-a@2x.png"/>
+</div>
 
-    <p>I can't tell you how many Subversion users have told me the following story: "We tried to branch our code, and
-      that worked fine. But when it came time to merge <em>back</em>, it was a complete nightmare and we had to
-      practically reapply every change by hand, and we swore <em>never again</em> and we developed a new way of
-      developing software using <strong>if</strong> statements instead of branches."</p>
+<div id="workflow-b" class="step workflow" data-x="4500">
+  <p><em>One</em> example of a distributed workflow</p>
+  <img src="img/workflow-b@2x.png"/>
+</div>
 
-    <p>With distributed version control, <em>merges are easy</em> and work <em>fine</em>. So you can actually have a
-      stable branch and a development branch, or create long-lived branches for your QA team where they test things
-      before deployment, or you can create short-lived branches to try out new ideas and see how they work.</p>
+<div id="workflow-c" class="step workflow" data-x="5800">
+  <p>The Linux kernel uses this one</p>
+  <img src="img/workflow-c@2x.png"/>
+</div>
 
-    <p>This is too important to miss out on. This is possibly the biggest advance in software development technology in
-      the ten years I've been writing articles here.</p>
+<div id="the-question" class="step" data-y="500" data-z="-25" data-rotate-x="-10">
+  <p>But is Git better than Subversion?</p>
+</div>
 
-    <p>Or, to put it another way, I'd go back to C++ before I gave up on Mercurial.</p>
+<div id="not-my-word" class="step" data-y="1000" data-z="-50" data-rotate-x="-15">
+  <p> Don't take my word for it...</p>
+</div>
 
-    <p>If you are using Subversion, stop it. Just stop. Subversion = Leeches. Mercurial and Git = Antibiotics. <em>We
-      have better technology now.</em></p>
-  </div>
+<div id="benchmarks" class="step" data-y="1750" data-z="-75" data-rotate-x="-16">
+  <p>All times are in seconds.</p>
+  <table class="benchmarks">
+    <tbody>
+    <tr>
+      <th>Operation</th>
+      <th></th>
+      <th class="right">Git</th>
+      <th class="right">SVN</th>
+    </tr>
+    <tr>
+      <td nowrap="">Commit Files (A)</td>
+      <td class="desc">Add, commit and push 113 modified files (2164+, 2259-)</td>
+      <td class="number"> 0.64</td>
+      <td class="number"> 2.60</td>
+      <td class="number">4x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Commit Images (B)</td>
+      <td class="desc">Add, commit and push 1000 1k images</td>
+      <td class="number"> 1.53</td>
+      <td class="number">24.70</td>
+      <td class="number">16x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Diff Current</td>
+      <td class="desc">Diff 187 changed files (1664+, 4859-) against last commit</td>
+      <td class="number"> 0.25</td>
+      <td class="number"> 1.09</td>
+      <td class="number">4x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Diff Recent</td>
+      <td class="desc">Diff against 4 commits back (269 changed/3609+,6898-)</td>
+      <td class="number"> 0.25</td>
+      <td class="number"> 3.99</td>
+      <td class="number">16x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Diff Tags</td>
+      <td class="desc">Diff two tags against each other (v1.9.1.0/v1.9.3.0 )</td>
+      <td class="number"> 1.17</td>
+      <td class="number">83.57</td>
+      <td class="number">71x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Log (50)</td>
+      <td class="desc">Log of the last 50 commits (19k of output)</td>
+      <td class="number"> 0.01</td>
+      <td class="number"> 0.38</td>
+      <td class="number">31x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Log (All)</td>
+      <td class="desc">Log of all commits (26,056 commits - 9.4M of output)</td>
+      <td class="number"> 0.52</td>
+      <td class="number">169.20</td>
+      <td class="number">325x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Log (File)</td>
+      <td class="desc">Log of the history of a single file (array.c - 483 revs)</td>
+      <td class="number"> 0.60</td>
+      <td class="number">82.84</td>
+      <td class="number">138x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Update</td>
+      <td class="desc">Pull of Commit A scenario (113 files changed, 2164+, 2259-)</td>
+      <td class="number"> 0.90</td>
+      <td class="number"> 2.82</td>
+      <td class="number">3x</td>
+    </tr>
+    <tr>
+      <td nowrap="">Blame</td>
+      <td class="desc">Line annotation of a single file (array.c)</td>
+      <td class="number"> 1.91</td>
+      <td class="number"> 3.04</td>
+      <td class="number">1x</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-  <div id="clip1" class="step clip" data-y="-1000" data-z="18000" data-rotate-x="120">
-    <div id="clip1-player"></div>
-  </div>
 
-  <div id="clip2" class="step clip" data-y="-2000" data-z="18000" data-rotate-y="90">
-    <div id="clip2-player"></div>
-  </div>
+<div id="joel1" class="step joel" data-y="3000" data-z="-100" data-rotate-x="-17">
+  <p>Joel on Software:</p>
 
-  <div id="end" class="step" data-x="3300" data-z="18000">
-    <p><em><strong>Questions?</strong></em></p>
-  </div>
+  <p>With distributed version control, the <em>distributed</em> part is actually not the most interesting part.</p>
+
+  <p>The interesting part is that these systems think in terms of <em>changes</em>, not in terms of <em>versions</em>.
+  </p>
+
+  <p>That's a very zen-like thing to say, I know. Traditional version control thinks: OK, I have version 1. And now I
+    have version 2. And now I have version 3.</p>
+
+  <p>And distributed version control thinks, I had nothing. And then I got these changes. And then I got these other
+    changes.</p>
+
+  <p>It's a different Program Model, so the user model has to change.</p>
+
+  <p>...</p>
+
+</div>
+<div id="joel2" class="step joel" data-y="4000" data-z="-250" data-rotate-x="-20">
+
+  <p>If you come at Mercurial with a Subversion mindset, things will <em>almost</em> work, but when they don't, you'll
+    be confused, unhappy, and unsuccessful, and you'll hate Mercurial.</p>
+
+  <p>Whereas if you free your mind and reimagine version control, and grok the zen of the difference between thinking
+    about managing the <em>versions</em> vs. thinking about managing the <em>changes</em>, you'll become enlightened
+    and happy and realize that this is the way version control was meant to work.</p>
+
+  <p>And here is the most important point, indeed, <em>the</em> most important thing that we've learned about
+    developer productivity in a decade. It's so important that it merits a place as the very last opinion piece that I
+    write, so if you only remember one thing, remember this:</p>
+
+  <p>When you manage <em>changes</em> instead of managing <em>versions</em>, merging works better, and therefore, you
+    can branch any time your organizational goals require it, because merging back will be a piece of cake.</p>
+
+</div>
+<div id="joel3" class="step joel" data-y="5000" data-z="-405" data-rotate-x="-22">
+
+  <p>I can't tell you how many Subversion users have told me the following story: "We tried to branch our code, and
+    that worked fine. But when it came time to merge <em>back</em>, it was a complete nightmare and we had to
+    practically reapply every change by hand, and we swore <em>never again</em> and we developed a new way of
+    developing software using <strong>if</strong> statements instead of branches."</p>
+
+  <p>With distributed version control, <em>merges are easy</em> and work <em>fine</em>. So you can actually have a
+    stable branch and a development branch, or create long-lived branches for your QA team where they test things
+    before deployment, or you can create short-lived branches to try out new ideas and see how they work.</p>
+
+  <p>This is too important to miss out on. This is possibly the biggest advance in software development technology in
+    the ten years I've been writing articles here.</p>
+
+  <p>Or, to put it another way, I'd go back to C++ before I gave up on Mercurial.</p>
+
+  <p>If you are using Subversion, stop it. Just stop. Subversion = Leeches. Mercurial and Git = Antibiotics. <em>We
+    have better technology now.</em></p>
+</div>
+
+<div id="clip1" class="step clip" data-y="-1000" data-z="18000" data-rotate-x="120">
+  <div id="clip1-player"></div>
+</div>
+
+<div id="clip2" class="step clip" data-y="-2000" data-z="18000" data-rotate-y="90">
+  <div id="clip2-player"></div>
+</div>
+
+<div id="end" class="step" data-x="3300" data-z="18000">
+  <p><em><strong>Questions?</strong></em></p>
+</div>
+
+<div id="resources" class="step slide-box" data-x="-2000">
+  <p><strong>Resources</strong></p>
+
+  <p><a href="http://joelonsoftware.com/items/2010/03/17.html" target="_blank">Joel on Software: Distributed Version
+    Control is here to stay, baby</a>
+  </p>
+
+  <p><a href="http://git-scm.com/about" target="_blank">Git: About</a></p>
+
+  <p><strong>Further training</strong></p>
+
+  <p><a href="https://www.atlassian.com/git/" target="_blank">Atlassian: Getting Git Right</a></p>
+
+  <p><a href="http://git-scm.com/book" target="_blank">Pro Git by Scott Chacon</a></p></div>
 </div>
 
 <script src="bower_components/impress.js/js/impress.js"></script>

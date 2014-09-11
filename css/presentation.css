@@ -148,6 +148,19 @@ table.benchmarks tr td {
   text-align: center;
 }
 
+#resources {
+  font-size: 30px;
+}
+
+#resources a {
+  color: #AABBCC;
+  text-decoration: none;
+}
+
+#resources a:hover {
+  color: #7991cc;
+}
+
 /* IMPRESS NOT SUPPORTED STYLES */
 
 .fallback-message {
