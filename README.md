@@ -1,4 +1,4 @@
 
 # About
 
-This is the source of my personal website, www.jackivy.com
+This is the source of my Git Lunch & Learn presentation.
