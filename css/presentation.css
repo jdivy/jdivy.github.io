@@ -56,6 +56,10 @@ table {
   border-spacing: 0;
 }
 
+table th {
+  font-weight: bold;
+}
+
 b, strong {
   font-weight: bold
 }
@@ -112,6 +116,35 @@ p {
 }
 
 .workflow {
+  text-align: center;
+}
+
+.joel {
+  font-size: 30px;
+}
+
+#benchmarks {
+  font-size: 20px;
+}
+
+table.benchmarks tr td.number {
+  text-align: right;
+  font-family: monospace;
+}
+
+table.benchmarks tr td {
+  padding: 0 10px;
+}
+
+#speaking-of {
+  text-align: center;
+}
+
+.clip {
+  text-align: center;
+}
+
+#end {
   text-align: center;
 }
 
